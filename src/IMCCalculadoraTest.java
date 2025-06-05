@@ -2,14 +2,23 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Classe de testes para IMCCalculadora.
- * Utiliza JUnit 5 para validar o cálculo e classificação do IMC.
- * Inclui testes de valor-limite e casos de exceção.
+  Classe de testes para IMCCalculadora.
+  Utilizando JUnit 5 para validar o cálculo e classificação.
+  Inclui testes de valor-limite e casos de exceção.
  */
+
 public class IMCCalculadoraTest {
 
     /**
-     * Teste de valor-limite: IMC exatamente 18.5 (limite inferior do peso normal)
+      Teste para IMC menor que 18.5 (abaixo do peso).
+     */
+    @Test
+    void testIMCAbaixoDoPeso() {
+        double imc = 18.4;
+        assertEquals("Abaixo do peso", IMCCalculadora.classificarIMC(imc));
+    }
+    /**
+      Teste de valor-limite: IMC exatamente 18.5 (limite inferior do peso normal)
      */
     @Test
     void testValorLimiteInferiorPesoNormal() {
@@ -18,7 +27,7 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de valor-limite: IMC exatamente 25 (limite inferior do sobrepeso)
+      Teste de valor-limite: IMC exatamente 25 (limite inferior do sobrepeso)
      */
     @Test
     void testValorLimiteInferiorSobrepeso() {
@@ -27,7 +36,7 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de valor-limite: IMC exatamente 30 (limite inferior da obesidade grau I)
+      Teste de valor-limite: IMC exatamente 30 (limite inferior da obesidade grau I)
      */
     @Test
     void testValorLimiteInferiorObesidadeI() {
@@ -36,7 +45,7 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de valor-limite: IMC exatamente 35 (limite inferior da obesidade grau II)
+      Teste de valor-limite: IMC exatamente 35 (limite inferior da obesidade grau II)
      */
     @Test
     void testValorLimiteInferiorObesidadeII() {
@@ -45,7 +54,7 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de valor-limite: IMC exatamente 40 (limite inferior da obesidade grau III)
+      Teste de valor-limite: IMC exatamente 40 (limite inferior da obesidade grau III)
      */
     @Test
     void testValorLimiteInferiorObesidadeIII() {
@@ -54,18 +63,19 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de cálculo do IMC com valores típicos.
+      Teste de cálculo do IMC com valores típicos.
      */
     @Test
     void testCalculoIMC() {
         double peso = 70.0;
         double altura = 1.75;
         double imc = IMCCalculadora.calcularIMC(peso, altura);
+        // Compara o valor calculado do IMC com o valor esperado (22.8571), permitindo uma diferença de até 0.0001 devido a possíveis arredondamentos de ponto flutuante.
         assertEquals(22.8571, imc, 0.0001); // Valor esperado arredondado
     }
 
     /**
-     * Teste de exceção: peso zero.
+      Teste de exceção: peso zero.
      */
     @Test
     void testPesoZero() {
@@ -73,7 +83,7 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de exceção: altura zero.
+      Teste de exceção: altura zero.
      */
     @Test
     void testAlturaZero() {
@@ -81,7 +91,7 @@ public class IMCCalculadoraTest {
     }
 
     /**
-     * Teste de exceção: valores negativos.
+      Teste de exceção: valores negativos.
      */
     @Test
     void testValoresNegativos() {
