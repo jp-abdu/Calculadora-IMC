@@ -7,8 +7,8 @@ public class IMCCalculadora {
 
     /**
       Calcula o IMC dado o peso e a altura.
-      @param peso é Peso em quilogramas
-      @param altura é Altura em metros
+      Peso em quilogramas
+      Altura em metros
       @return O valor do IMC
       @throws IllegalArgumentException se peso ou altura forem inválidos
      */
@@ -25,7 +25,6 @@ public class IMCCalculadora {
 
     /**
       Classifica o IMC
-      @param imc é Valor do IMC
       @return String com a classificação
      */
 
