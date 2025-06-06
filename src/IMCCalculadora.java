@@ -31,8 +31,38 @@ public class IMCCalculadora {
       @return String com a classificação
      */
     public static String classificarIMC(double imc, int idade, String genero) {
-        // Classificação para adultos (OMS)
-        if (idade < 60) {
+        if (idade >= 65) {
+            if (genero.equalsIgnoreCase("feminino")) {
+                if (imc < 21.9) {
+                    return "Baixo peso";
+                } else if (imc <= 27) {
+                    return "Peso normal";
+                } else if (imc <= 32) {
+                    return "Sobrepeso";
+                } else if (imc <= 37) {
+                    return "Obesidade grau I";
+                } else if (imc <= 41.9) {
+                    return "Obesidade grau II";
+                } else {
+                    return "Obesidade grau III";
+                }
+            } else { // masculino
+                if (imc < 21.9) {
+                    return "Baixo peso";
+                } else if (imc <= 27) {
+                    return "Peso normal";
+                } else if (imc <= 30) {
+                    return "Sobrepeso";
+                } else if (imc <= 35) {
+                    return "Obesidade grau I";
+                } else if (imc <= 39.9) {
+                    return "Obesidade grau II";
+                } else {
+                    return "Obesidade grau III";
+                }
+            }
+        } else {
+            // Classificação para adultos (OMS)
             if (imc < 16) {
                 return "Baixo peso muito grave";
             } else if (imc < 17) {
@@ -49,15 +79,6 @@ public class IMCCalculadora {
                 return "Obesidade grau II";
             } else {
                 return "Obesidade grau III";
-            }
-        } else {
-            // Idoso: manter classificação anterior (pode ser ajustada se desejar)
-            if (imc < 22) {
-                return "Abaixo do peso";
-            } else if (imc < 27) {
-                return "Peso normal";
-            } else {
-                return "Excesso de peso";
             }
         }
     }
