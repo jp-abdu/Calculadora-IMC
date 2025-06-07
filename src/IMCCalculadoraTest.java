@@ -195,7 +195,7 @@ public class IMCCalculadoraTest {
     }
     @Test
     void testIdosaObesidadeGrauIIILimiteSuperior() {
-        double imc = 50.0;
+        double imc = 42.1;
         assertEquals("Obesidade grau III", IMCCalculadora.classificarIMC(imc, 70, "feminino"));
     }
 
@@ -252,7 +252,7 @@ public class IMCCalculadoraTest {
     }
     @Test
     void testIdosoObesidadeGrauIIILimiteSuperior() {
-        double imc = 50.0;
+        double imc = 40.1;
         assertEquals("Obesidade grau III", IMCCalculadora.classificarIMC(imc, 70, "masculino"));
     }
 }
