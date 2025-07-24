@@ -1,0 +1,1 @@
+- Repositório utilizado para criação de uma calculadora de IMC em java, junto a um arquivo para realização de testes
